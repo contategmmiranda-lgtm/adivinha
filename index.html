@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz das Adivinhas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <h1>🧩 Quiz das Adivinhas</h1>
+    <button id="btn-som" class="btn-pequeno" aria-pressed="false">🔇 Som: desligado</button>
+  </header>
+
+  <main class="container">
+
+    <!-- TELA INICIAL -->
+    <section id="tela-inicio" class="tela active">
+      <div class="card">
+        <h2>Olá, detetive de ideias! 🕵️</h2>
+        <p>Responda às 20 adivinhas "O que é, o que é?" e descubra qual medalha você pode ganhar!</p>
+        <label for="nome">Qual é o seu nome?</label>
+        <input id="nome" type="text" maxlength="40" placeholder="Digite seu nome">
+        <p id="erro-nome" class="erro" hidden>Digite seu nome para começar!</p>
+        <div class="acoes">
+          <button id="btn-comecar" class="btn-primario">Começar o quiz 🚀</button>
+          <button id="btn-pais" class="btn-secundario">Para pais e mestres</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA PAIS E MESTRES -->
+    <section id="tela-pais" class="tela">
+      <div class="card">
+        <h2>Para pais e mestres</h2>
+        <h3>Objetivo educativo</h3>
+        <p>
+          O quiz estimula o raciocínio lógico, a interpretação de textos curtos, o vocabulário
+          e a criatividade. As adivinhas "O que é, o que é?" exigem que a criança relacione
+          características, faça analogias e pense antes de responder.
+        </p>
+        <h3>Orientações de uso</h3>
+        <ul>
+          <li>Incentive a criança a ler a adivinha em voz alta e pensar antes de responder.</li>
+          <li>Use a <strong>dica</strong> como apoio: ela orienta o pensamento sem entregar a resposta.</li>
+          <li>Converse sobre os erros. Eles fazem parte do aprendizado.</li>
+          <li>O som é opcional e pode ser ativado ou desativado a qualquer momento.</li>
+        </ul>
+        <h3>Medalhas</h3>
+        <ul>
+          <li>🥇 <strong>Ouro:</strong> 20 acertos sem usar nenhuma dica.</li>
+          <li>🥈 <strong>Prata:</strong> 18 ou 19 acertos e pelo menos uma dica usada.</li>
+          <li>🥉 <strong>Bronze:</strong> de 15 a 17 acertos.</li>
+        </ul>
+      </div>
+      <button id="btn-voltar-pais" class="btn-primario">⬅️ Voltar</button>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="tela-quiz" class="tela">
+      <div class="progresso-info">
+        <span id="contador"></span>
+        <span id="pontos-info"></span>
+      </div>
+      <div class="barra"><div id="barra-preenchida"></div></div>
+
+      <div class="card">
+        <p id="pergunta" class="pergunta"></p>
+        <div id="alternativas" class="alternativas"></div>
+        <button id="btn-dica" class="btn-dica">💡 Dica</button>
+        <p id="texto-dica" class="dica" hidden></p>
+        <p id="retorno" class="retorno" hidden></p>
+      </div>
+
+      <button id="btn-proxima" class="btn-primario" disabled>Próxima ➡️</button>
+    </section>
+
+    <!-- RESULTADO -->
+    <section id="tela-resultado" class="tela">
+      <div class="card resultado">
+        <div id="medalha" class="medalha"></div>
+        <h2 id="titulo-resultado"></h2>
+        <p id="pontuacao"></p>
+        <p id="mensagem"></p>
+
+        <div id="area-certificado" hidden>
+          <canvas id="canvas-certificado" width="1000" height="700"></canvas>
+          <button id="btn-baixar" class="btn-primario">⬇️ Baixar certificado</button>
+        </div>
+
+        <button id="btn-reiniciar" class="btn-secundario">🔄 Jogar de novo</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:root {
+  --roxo: #6c4cf1;
+  --verde: #2ecc71;
+  --amarelo: #ffd23f;
+  --vermelho: #ff6b6b;
+  --texto: #2d2a4a;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--texto);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c7b8ff 0%, #ffd6e7 50%, #fff3b0 100%);
+}
+
+/* Topo */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 20px;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Container e transições entre telas */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 10px 16px 40px;
+}
+
+.tela {
+  display: none;
+}
+
+.tela.active {
+  display: block;
+  animation: entrar 0.5s ease both;
+}
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Cartões */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+/* Tela inicial */
+label {
+  display: block;
+  font-weight: bold;
+  margin: 16px 0 6px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  border: 3px solid #cbbfff;
+  border-radius: 14px;
+  font-family: inherit;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--roxo);
+}
+
+.erro {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Botões */
+button {
+  font-family: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  transition: transform 0.15s, background 0.2s, opacity 0.2s;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primario {
+  background: var(--roxo);
+  color: #fff;
+  width: 100%;
+}
+
+.btn-secundario {
+  background: #fff;
+  color: var(--roxo);
+  border: 3px solid var(--roxo);
+  width: 100%;
+}
+
+.btn-pequeno {
+  background: #fff;
+  color: var(--roxo);
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+/* Progresso */
+.progresso-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.barra {
+  height: 14px;
+  background: #fff;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+#barra-preenchida {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--verde), var(--amarelo));
+  transition: width 0.5s ease;
+}
+
+/* Pergunta */
+.pergunta {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+.alternativas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.alternativa {
+  background: #f7f5ff;
+  color: var(--texto);
+  border: 3px solid #d9d0ff;
+  font-size: 1.05rem;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.alternativa:hover:not(:disabled) {
+  background: #ece6ff;
+}
+
+.alternativa.certa {
+  background: #d8f8e5;
+  border-color: var(--verde);
+}
+
+.alternativa.errada {
+  background: #ffe0e0;
+  border-color: var(--vermelho);
+}
+
+.btn-dica {
+  background: var(--amarelo);
+  color: #5a4300;
+  font-weight: bold;
+}
+
+.dica {
+  background: #fff8d6;
+  border-left: 6px solid var(--amarelo);
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 14px 0 0;
+}
+
+.retorno {
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 14px 0 0;
+}
+
+.retorno.acerto {
+  background: #d8f8e5;
+  color: #1d6b3a;
+}
+
+.retorno.erro-suave {
+  background: #e8f0ff;
+  color: #2a4a8a;
+}
+
+#btn-proxima {
+  margin-top: 4px;
+}
+
+/* Resultado */
+.resultado {
+  text-align: center;
+}
+
+.medalha {
+  font-size: 5rem;
+}
+
+#canvas-certificado {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  margin: 10px 0 16px;
+}
+
+#area-certificado {
+  margin-bottom: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 520px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .pergunta {
+    font-size: 1.1rem;
+  }
+
+  .alternativas {
+    grid-template-columns: 1fr;
+  }
+}
